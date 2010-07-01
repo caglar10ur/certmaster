@@ -57,7 +57,9 @@ def daemonize(pidfile=None):
         sys.exit(0)
     os.chdir("/")
     os.setsid()
-    os.umask(077)
+    # modified by caglar
+    #os.umask(077)
+    os.umask(0022)
     pid = os.fork()
 
     os.close(0)
